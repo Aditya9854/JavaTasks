@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="deptObj" class="com.Test.Department">
+        <constructor-arg value="IT Support"/>
+    </bean>
+    <bean id="empPrototype"
+          class="com.Test.Employee"
+          scope="prototype"
+          init-method="myInit"
+          destroy-method="myDestroy">
+
+        <property name="id" value="1001"/>
+        <property name="name" value="Ram"/>
+        <property name="department" ref="deptObj"/>
+    </bean>
+
+</beans>
